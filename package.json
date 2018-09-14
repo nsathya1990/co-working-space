@@ -1,0 +1,20 @@
+{
+  "name": "quora-api",
+  "version": "1.0.0",
+  "description": "API calls for Quora website",
+  "main": "server.js",
+  "scripts": {
+    "test": "Helloooooooooooooooooooooooooooo",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Sathyapriyan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.14"
+  }
+}
