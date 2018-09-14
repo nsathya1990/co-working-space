@@ -23,9 +23,11 @@ exports.getBlogs = function(req, res) {
 exports.postBlog = function(req, res) {
     console.log(req.body);
     var blog = new Blog ({
-        cities: req.body.cities,
-        title: req.body.title,
-        subTitle: req.body.subTitle
+        blogTitle: req.body.blogTitle,
+        description: req.body.description,
+        createdAt: req.body.createdAt,
+        modifiedAt: req.body.modifiedAt,
+        tag: req.body.tag
     });
     blog.save().then(function(newBlog) {
         res.json({
@@ -37,10 +39,11 @@ exports.postBlog = function(req, res) {
 exports.putUpdateBlog = function(req, res) {
     console.log("ID of the document to be updated:", req.params.id);
     console.log("Body: ", req.body);
-    console.log("req.body.data.budget: ", req.body.data.budget);
+    console.log("req.body.data.tag: ", req.body.data.tag);
 
     Blog.updateOne({ _id: req.params.id }, {
-        cities: req.body.data.cities
+        tag: req.body.data.tag,
+        modifiedAt: req.body.data.modifiedAt
     }, {}, function (err, doc) {
         console.log("doc.nModified: ", doc.nModified);
         if (err) {

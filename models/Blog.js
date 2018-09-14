@@ -6,4 +6,4 @@ const blogSchema = mongoose.Schema({
     modifiedAt: Date,
     tag: Array
 });
-module.exports = mongoose.model('Home', homeSchema);
+module.exports = mongoose.model('Blog', blogSchema);
