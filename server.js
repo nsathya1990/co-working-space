@@ -3,6 +3,7 @@ const bodyParser = require ('body-parser');
 const mongoose = require ('mongoose');
 const homeController = require('./controllers/home');
 const blogController = require('./controllers/blog');
+const spaceController = require('./controllers/space');
 
 mongoose.connect("mongodb://localhost:27017/quora");
 mongoose.connection.on('error', function() {
@@ -31,6 +32,11 @@ app.get('/api/blogs', blogController.getBlogs); //retrieve all movies using GET
 app.post('/api/blog', blogController.postBlog); //create record for a movie using POST
 app.put('/api/blog/:id', blogController.putUpdateBlog); //update a record using PUT
 app.delete('/api/blog/:id', blogController.deleteRemoveBlog); //remove a record using DELETE
+
+app.get('/api/space', spaceController.getSpace); //retrieve all movies using GET
+app.post('/api/space', spaceController.postSpace); //create record for a movie using POST
+app.put('/api/space/:id', spaceController.putUpdateSpace); //update a record using PUT
+app.delete('/api/space/:id', spaceController.deleteRemoveSpace); //remove a record using DELETE
 
 app.set('port', 3000);
 app.listen(app.get('port'), function() {
