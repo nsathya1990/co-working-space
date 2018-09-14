@@ -4,6 +4,7 @@ const mongoose = require ('mongoose');
 const homeController = require('./controllers/home');
 const blogController = require('./controllers/blog');
 const spaceController = require('./controllers/space');
+const userController = require('./controllers/user');
 
 mongoose.connect("mongodb://localhost:27017/quora");
 mongoose.connection.on('error', function() {
@@ -37,6 +38,11 @@ app.get('/api/space', spaceController.getSpace); //retrieve all movies using GET
 app.post('/api/space', spaceController.postSpace); //create record for a movie using POST
 app.put('/api/space/:id', spaceController.putUpdateSpace); //update a record using PUT
 app.delete('/api/space/:id', spaceController.deleteRemoveSpace); //remove a record using DELETE
+
+app.get('/api/users', userController.getAllUsers); //retrieve all movies using GET
+app.post('/api/user', userController.postUser); //create record for a movie using POST
+app.put('/api/user/:id', userController.putUpdateUser); //update a record using PUT
+app.delete('/api/user/:id', userController.deleteRemoveUser); //remove a record using DELETE
 
 app.set('port', 3000);
 app.listen(app.get('port'), function() {
